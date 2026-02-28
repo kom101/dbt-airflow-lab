@@ -1,0 +1,54 @@
+version: 2
+
+sources:
+  - name: gcs_raw
+    schema: ecommerce_data_lr
+    description: "Źródłowe dane z plików CSV przechowywane w Google Cloud Storage"
+    tables:
+      - name: raw_events_csv
+        description: "Surowe dane zdarzeń e-commerce z plików CSV"
+        external:
+          location: 'gs://ecommerce-data-python-raw/events/*.csv'
+          options:
+            format: csv
+            skip_leading_rows: 1
+            allow_quoted_newlines: true
+            # Dodajemy informację o cudzysłowie, by nie rozbić JSON-a na kilka kolumn
+            quote: '"'
+        columns:
+          - name: event_id
+            data_type: string
+            description: "Unikalny identyfikator zdarzenia"
+            tests:
+              - not_null
+              - unique
+          - name: event_timestamp
+            data_type: timestamp # Dodana brakująca kolumna
+            description: "Czas wystąpienia zdarzenia"
+          - name: event_type
+            data_type: string
+            description: "Typ zdarzenia"
+            tests:
+              - not_null
+          - name: event_body
+            data_type: string
+            description: "Treść zdarzenia w formacie JSON"
+            tests:
+              - not_null
+
+models:
+  - name: stg_events_validated
+    description: "Model walidujący dane zdarzeń e-commerce"
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+      - name: event_timestamp
+        description: "Czas wystąpienia zdarzenia"
+      - name: event_type
+        tests:
+          - not_null
+      - name: event_body
+        tests:
+          - not_null

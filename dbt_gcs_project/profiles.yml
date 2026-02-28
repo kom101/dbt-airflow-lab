@@ -1,0 +1,15 @@
+bigquery:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: lrz-ecommerce-test
+      dataset: ecommerce_data_lr
+      threads: 4
+      timeout_seconds: 300
+      location: europe-west1
+      priority: interactive
+      submission_method: serverless
+      dataproc_region: europe-west1
+      gcs_bucket: ecommerce-data-python-raw

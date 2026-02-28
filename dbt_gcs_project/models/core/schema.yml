@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Standaryzowana tabela faktów zawierająca informacje o zamówieniach"
+    columns:
+      - name: order_id
+        description: "Unikalny identyfikator zamówienia"
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Identyfikator klienta"
+        tests:
+          - not_null
+      - name: total_amount
+        description: "Całkowita kwota zamówienia"
+        tests:
+          - not_null
+      - name: processed_at
+        description: "Data i czas przetworzenia zamówienia"
+        tests:
+          - not_null
+
+  - name: fct_order_items
+    description: "Standaryzowana tabela faktów zawierająca informacje o pozycjach zamówień"
+    columns:
+      - name: order_id
+        description: "Unikalny identyfikator zamówienia"
+        tests:
+          - not_null
+      - name: sku
+        description: "Kod SKU produktu"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Ilość sztuk produktu"
+        tests:
+          - not_null
+      - name: price
+        description: "Cena jednostkowa produktu"
+        tests:
+          - not_null

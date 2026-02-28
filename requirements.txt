@@ -1,0 +1,5 @@
+#--index-url http://host.docker.internal:3141/root/pypi/+simple/
+#--trusted-host host.docker.internal
+
+#astronomer-cosmos==1.13.0
+#dbt-postgres==1.9.1

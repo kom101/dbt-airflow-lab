@@ -1,0 +1,12 @@
+version: 2
+
+analyses:
+  - name: validation_stats
+    description: "Analiza statystyk walidacji danych - porównuje liczbę rekordów wejściowych, zaakceptowanych i odrzuconych"
+    columns:
+      - name: total_input_rows
+        description: "Całkowita liczba rekordów w danych wejściowych (surowe dane z CSV)"
+      - name: valid_rows_loaded
+        description: "Liczba rekordów, które przeszły walidację i zostały załadowane do modelu stg_events_validated"
+      - name: rejected_rows_count
+        description: "Liczba rekordów odrzuconych podczas walidacji"
