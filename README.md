@@ -82,6 +82,12 @@ dbt-airflow-lab/
 4.  **Uruchomienie DAG-a**:
     Przejdź do Airflow UI ([http://localhost:8080](http://localhost:8080)) i włącz DAG `gcp_ecommerce_pipeline`.
 
+## 🖼️ Zrzut ekranu DAG-a
+
+![Airflow DAG: gcp_ecommerce_pipeline](docs/gcp_ecommerce_pipeline.png)
+
+Widok Graph przedstawia zadania dbt (staging/core) oraz krok generowania dokumentacji dbt w Airflow.
+
 ## 🌐 Dostęp do Usług
 
 | Usługa | URL / Port | Opis |

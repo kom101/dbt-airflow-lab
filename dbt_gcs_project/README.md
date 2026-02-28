@@ -81,5 +81,11 @@ Dwa modele SQL przekształcają zwalidowane dane w relacyjną strukturę:
 3.  **Lineage**: Jasna ścieżka danych: GCS ➔ Python Model (Clean) ➔ SQL Models (Standardized).
 4.  **Scalability**: Wykorzystanie rozwiązań serverless (BigQuery, Dataproc) eliminuje potrzebę zarządzania infrastrukturą.
 
+## 🖼️ Zrzut ekranu dbt Docs
+
+![dbt Docs: fct_orders](../docs/dbt_docs_fct_orders.png)
+
+Widok szczegółów modelu `fct_orders` w wygenerowanej dokumentacji dbt. Zawiera metadane kolumn, odwołania do testów oraz powiązania z innymi modelami.
+
 ---
 *Dokumentacja techniczna projektu dbt.*
